@@ -1,0 +1,360 @@
+--------------------------------
+VL-14677
+--------------------------------
+country              | country
+My Country           | Hawaiian
+My Country Selection | Audiobook
+----------------------------
+VL-3036
+----------------------------
+chile        | chile
+rock chileno | rock chileno
+chilean      | nueva cancion
+-------------------------
+VL-17400
+-------------------------
+Garage Rock | Garage Rock
+garage      | garage
+Garage Punk | Garage Punk
+-------------------------
+VL-2743
+-------------------------
+idm          | idm
+ambient      | post-rock
+experimental | electronic
+-----------------------------
+VL-16661
+-----------------------------
+Drum and bass | Drum and bass
+dnb           | Drum n Bass
+Drum n Bass   | dnb
+---------------------
+VL-876
+---------------------
+downtempo | downtempo
+lounge    | chillout
+chillout  | trip-hop
+-------------------------
+VL-19970
+-------------------------
+heavy metal | heavy metal
+NWOBHM      | NWOBHM
+metal       | metal
+--------------------
+VL-7755
+--------------------
+rapcore  | rapcore
+Nu-metal | Nu-metal
+Nu Metal | argentina
+---------------------
+VL-17064
+---------------------
+punk      | punk
+pop punk  | punk rock
+punk rock | pop punk
+------------------
+VL-4813
+------------------
+spanish | spanish
+latin   | latin
+Espanol | Flamenco
+-----------------
+VL-12309
+-----------------
+hiphop  | Hip-Hop
+hip hop | rap
+rap     | hip hop
+---------------------------
+VL-7180
+---------------------------
+experimental | experimental
+noise        | RAC
+Avant-Garde  | noise
+-----------------
+VL-17855
+-----------------
+seattle | Grunge
+mashups | mashup
+mash-up | podcast
+-----------------------------------
+VL-110
+-----------------------------------
+alternative rock | rock
+post-grunge      | alternative rock
+alt rock         | alternative
+-----------------------------
+VL-8202
+-----------------------------
+hardcore      | hardcore
+hardcore punk | Crust
+Straight Edge | hardcore punk
+-------------------
+VL-2897
+-------------------
+pop      | pop
+80s      | 80s
+eighties | new wave
+-------------------------------------
+VL-10227
+-------------------------------------
+french            | french
+francais          | chanson francaise
+chanson francaise | russian
+--------------------------
+VL-6573
+--------------------------
+rnb              | rnb
+r and b          | soul
+contemporary rnb | r and b
+-------------------------
+VL-5582
+-------------------------
+deutschpunk | Oi
+Oi          | deutschpunk
+streetpunk  | punk
+-----------------------
+VL-17825
+-----------------------
+indie pop  | indie
+indie rock | indie rock
+indie      | indie pop
+-------------------------------------
+VL-3601
+-------------------------------------
+singer-songwriter | singer-songwriter
+folk              | folk
+acoustic          | acoustic
+-------------------------
+VL-11660
+-------------------------
+New Zealand | New Zealand
+Kiwi        | dub
+nz          | Kiwi
+---------------------
+VL-2466
+---------------------
+60s    | classic rock
+oldies | 60s
+70s    | oldies
+-------------------
+VL-17057
+-------------------
+ska      | ska
+ska-punk | ska punk
+ska punk | ska-punk
+---------------------------
+VL-14665
+---------------------------
+techno         | techno
+minimal        | minimal
+minimal techno | electronic
+-----------------------
+VL-16071
+-----------------------
+australian | australian
+Aussie     | Aussie
+australia  | melbourne
+------------------------
+VL-3309
+------------------------
+j-pop | japanese
+JPop  | j-pop
+anime | video game music
+-------------------------
+VL-8674
+-------------------------
+Soundtrack  | Soundtrack
+Soundtracks | musicals
+score       | Soundtracks
+----------------------------------
+VL-5557
+----------------------------------
+reggae                 | reggae
+dancehall              | dancehall
+lions reggae-dancehall | ragga
+-----------------------
+VL-8935
+-----------------------
+blues      | blues
+blues rock | bluegrass
+rlfav      | blues rock
+---------------------------------
+VL-18685
+---------------------------------
+dutch           | dutch
+Nederlandstalig | Nederlandstalig
+nederlands      | Belgium
+--------------------------
+VL-13503
+--------------------------
+polish       | polish
+polskie      | polskie
+polish music | polish rock
+------------------------
+VL-11218
+------------------------
+soul             | soul
+rnb              | funk
+rhythm and blues | Disco
+-----------------------
+VL-3760
+-----------------------
+ebm        | industrial
+industrial | ebm
+darkwave   | darkwave
+---------------------
+VL-12015
+---------------------
+brazilian | brazilian
+brasil    | mpb
+brazil    | brasil
+------------------
+VL-5621
+------------------
+celtic   | celtic
+irish    | irish
+medieval | neofolk
+-------------------
+VL-15013
+-------------------
+finnish | finnish
+Suomi   | seen live
+finland | Suomi
+-----------------------------
+VL-5778
+-----------------------------
+jazz trumpet      | trumpet
+jazz instrumental | jazz
+essential jazz    | Classical
+---------------
+VL-8607
+---------------
+trance | trance
+House  | dance
+dance  | House
+------------------------
+VL-13853
+------------------------
+detroit     | juggalo
+wicked shit | Horrorcore
+detroit rap | detroit
+--------------------------
+VL-2937
+--------------------------
+japanese rock | J-rock
+jrock         | japanese
+J-rock        | visual kei
+------------------------------
+VL-19926
+------------------------------
+psychedelic trance | psytrance
+psytrance          | goa
+goa                | Surf
+--------------------------
+VL-1327
+--------------------------
+jazz              | jazz
+contemporary jazz | Fusion
+jazz piano        | swing
+-----------------------------------------
+VL-5122
+-----------------------------------------
+melodic black metal | black metal
+black y pagan metal | melodic black metal
+Black               | nsbm
+-------------------------
+VL-37
+-------------------------
+rockabilly  | psychobilly
+psychobilly | rockabilly
+Pykoo       | horror punk
+---------------------------------------
+VL-8637
+---------------------------------------
+christian              | christian
+christian rock         | christian rock
+contemporary christian | worship
+---------------------------------
+VL-16215
+---------------------------------
+melodic metal       | Power metal
+heavy metal         | heavy metal
+Melodic Power Metal | metal
+-----------------
+VL-13015
+-----------------
+comedy  | comedy
+deutsch | german
+german  | deutsch
+---------------------------
+VL-6033
+---------------------------
+thrash metal | thrash metal
+thrash       | metal
+speed metal  | thrash
+---------------------
+VL-15102
+---------------------
+Classical | Classical
+Clasica   | italian
+italian   | piano
+-----------------------------
+VL-554
+-----------------------------
+screamo       | screamo
+post-hardcore | emo
+emocore       | post-hardcore
+---------------------
+VL-3505
+---------------------
+swedish | swedish
+svenskt | Stoner Rock
+Sweden  | svenskt
+-------------------------------------
+VL-16656
+-------------------------------------
+Progressive       | Progressive rock
+prog              | Progressive metal
+Progressive metal | doom metal
+---------------------
+VL-10967
+---------------------
+danish | danish
+dansk  | dansk
+dk     | scandinavian
+---------------------
+VL-14080
+---------------------
+norwegian | norwegian
+norsk     | chinese
+Norway    | norsk
+---------------------------
+VL-5305
+---------------------------
+hard rock      | hard rock
+hair metal     | hair metal
+80s hair metal | Romanian
+--------------------------
+VL-18949
+--------------------------
+world       | turkish
+World Music | world
+turkish     | turkish rock
+---------------------
+VL-3345
+---------------------
+gospel    | gospel
+christian | worship
+worship   | christian
+----------------------------------------
+VL-18939
+----------------------------------------
+death metal        | death metal
+Brutal Death Metal | Melodic Death Metal
+death              | grindcore
+-----------------------------
+VL-17013
+-----------------------------
+hardcore          | metalcore
+melodic metalcore | hardcore
+deathcore         | metal

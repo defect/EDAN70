@@ -1,0 +1,7 @@
+*.sw[a-z]
+doc/felix_report.aux
+doc/felix_report.bbl
+doc/felix_report.blg
+doc/felix_report.log
+doc/felix_report.out
+doc/felix_report.pdf

@@ -1,0 +1,551 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins
+
+\usepackage{amsmath}
+\usepackage{longtable,multirow}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{hyperref}
+
+\title{
+{\LARGE \bf Unsupervised cluster labelling} \\
+{\small \today}
+}
+
+\author{Felix Aronsson$^{1}$%
+\thanks{$^{1}$Felix Aronsson, {\tt\small felixaronsson@gmail.com}}%
+}
+
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+
+In machine learning, cluster analysis is an unsupervised method of dividing a
+data set into groups of data points that are similar in some pre-defined sense.
+To present these groupings to a human user however, we often need to put a label
+on each cluster, explaining the contents of that group in a human readable
+manner.
+
+In this project, I explore three methods for labelling clusters without
+supervision, and compare the results of two of them.
+
+\end{abstract}
+
+\section{INTRODUCTION}
+
+\subsection{Background}
+Cluster analysis is an unsupervised method in machine learning, where a data set
+is divided in to groups based on some sort of similarity metric between the
+datapoints in the set. There are many types of clustering methods. Some of these
+are centroid-based clustering where each cluster is defined as a centroid vector
+in the same vector space as the data points, distribution-based clustering where
+it is assumed that the documents and terms come from statistical distributions
+and the goal is to find those distributions.
+
+Cluster analysis has the advantage that we do not have to train classifiers or
+manually annotate a gold standard data set since the process is unsupervised. It
+might even be the case that the process reveals patterns in the data that were
+not obvious from the beginning.
+
+However, to be able to present the clusters to human users they need to be
+summarized in some way that describes what features are particular to the
+elements in a certain cluster. In order to do that, we need to inspect the
+clusters and produce one or more keywords, key phrases or other human-readable
+information that succinctly describes the contents of each cluster. This piece
+of information is called the cluster label.
+
+\subsection{Data set}
+The data set used comes from the music database Last.FM and contains roughly
+20 000 artists, each annotated with tags by the users of the site. Approximately
+100 000 unique tags were used by the users. The data set was compiled in 2007,
+so some more recent artists are not included.\cite{Lamere2010LastFm}
+
+The actual process of clustering is out of scope for this report. However, the
+data set was clustered using the Mahout machine learning framework. The
+$k$-means algorithm was used with TF/IDF term weighting (more on this later) and
+the cosine similarity. $k$ was chosen to be 60, meaning the data set was
+divided into 60 clusters.
+
+\subsection{Software and tools used}
+As mentioned, to cluster the data set the Mahout framework was used. This runs
+on top of the Hadoop map/reduce framework, and a small Hadoop cluster was set up
+using Amazon's Elastic Map Reduce service. To get the cluster data in to
+plaintext the `Cluster Dumper` tool, which is bundled with Mahout, was used.
+
+The redis key/value database was used as a data structure store where the
+results of intermediate calculations and other necessary information could be
+stored.
+
+The Ruby programming language was used to parse the output file, add the
+necessary information to redis and also to query redis to perform the necessary
+calculations.
+
+\section{CLUSTER LABELLING METHODS}
+In this section three different methods (and variants) are presented and
+explained. A discussion of the methods can be found in the next section, and the
+details of the implementation of them in the implementation section.
+
+\subsection{Centroid labelling}
+
+One fairly straight-forward method of labelling a cluster is taking inspiration
+from the vector model of informational retrieval and calculate a mean cluster,
+or centroid, based on the members of the cluster.
+
+Modelling each document as a vector in a vector space, where each term in the
+documents corresponds to a dimension in the space, we can easily find the
+centroid vector by calculating the mean of all the vectors in the cluster $c_p$.
+
+$$
+\vec{\Delta}_p = \frac{1}{|c_p|} \sum_{\vec{d_j} \in c_p} \vec{d_j}
+$$
+
+where $\vec{\Delta}_p$ is the centroid vector for cluster $c_p$, and $\vec{d_j}$
+represents document $j$ in the cluster. This centroid vector should indicate
+which terms are important in its cluster as terms that occur frequently will
+correspond to a large value in that dimension. If we pick the dimension with the
+highest value the corresponding term could be a candidate for the cluster label,
+as it is obviously important in the cluster.
+
+In order to represent the documents as vectors, a scheme for assigning a value
+for each term is needed. The simplest scheme is to simply assign boolean values
+for each term. If a term is present in a document, the corresponding value in
+the vector is $1$, if not $0$.
+
+Another way of weighting each term is to simply count how many times it occurs
+in the document. This is called term frequency (TF). More specifically, we
+denote the frequency of term $t$ in document $d$ as
+$tf_{t,d}$.\cite{baeza1999modern}
+
+Both these weighting schemes suffer from the fact that some words are inherently
+more common than others. Words like ``and'', ``if'' and pronouns will often be
+weighted heavily, even though they do not carry any information about the
+contents of the cluster.
+
+A common technique in information retrieval to combat this is to include the
+inverse domain frequency (IDF) in the weighting scheme. IDF is defined as the
+logarithm of the total number of documents divided by the number of documents
+containing the term.
+
+$$
+idf_{t} = log \frac{N}{df_t}
+$$
+
+Where $N$ is the total number of terms in the data set and $df_t$ is the number
+of documents in the data set that the term $t$ occurs in.\cite{baeza1999modern}
+In other words, a term that does not occur often will have a higher IDF value
+than a more common one.
+
+Combining the two gives the TF/IDF score;
+$$
+tfidf = tf \cdot idf
+$$
+
+%XXX: Division not necessary, unless comparing with other clusters.
+
+\subsection{Mutual information}
+
+Mutual information is a measure often used for feature selection in
+classification problems. It expresses entropy between two random variables. In
+classification, it can be used to reduce the number of features used to classify
+documents. The presence of terms that have high mutual information with a class
+in a document will contribute more towards the classification of that document
+to that class than terms with less mutual
+information.\cite{manning2008introduction} We can then choose a threshold which
+a term has to exceed in order to not be discarded from use in the
+classification.\cite{baeza1999modern}
+
+This measure can be used in the same way to measure the ``influence'' a certain
+term has in a cluster the same way. Calculate the mutual information for each
+term in a cluster and the terms with the highest value are the most influential
+and, in theory, makes good candidates for labelling that cluster.
+
+For two discrete random variables, the mutual information between them can be
+defined as
+
+$$
+I(X;Y) = \sum_{y \in Y} \sum_{x \in X} p(x,y) log \frac{p(x,y)}{p(x)p(y)}
+$$
+
+Using notation from the literature we refer to $X$ as $U$ and $Y$ as
+$C$\cite{manning2008introduction}.
+
+In the case of terms and clusters, $U$ takes the value $1$ if the
+document contains the term and $0$ if it does not. $C$ takes the value $1$ if
+the document is assigned to the cluster, and $0$ if not. The mutual information
+in this context can be written as
+
+\begin{gather*}
+I(U;C) = \\
+\sum_{e_t \in \{0,1\}} \sum_{e_c \{0,1\}} p(U = e_t, C = e_c) log
+\frac{p(U = e_t, C = e_c)}{p(U = e_t)p(C = e_c)}
+\end{gather*}
+
+$p(e_c, e_t)$ is the mutual probability of the two variables. I.e. $p(1,1)$ is
+the probability that the document contains term $t$ and that the document
+belongs to cluster $c$.\cite{manning2008introduction}
+
+We estimate the probabilities as $p(U=e_t, C=e_c) = \frac{N_{tc}}{N}$,
+where $N_{tc}$ is the number of documents matching those criteria and $N$ is
+the total number of documents\cite{manning2008introduction}. For example,
+$N_{11}$ is the number of documents containing the term $t$ and are in cluster
+$c$. $N_{1\_}$ denotes the number of documents that contain the term $t$, but
+can either be in cluster $c$, or not. It follows that
+
+\begin{gather*}
+N_{1\_} = N_{10} + N_{11} \\
+N_{\_1} = N_{01} + N_{11} \\
+N_{0\_} = N_{00} + N_{01} \\
+N_{\_0} = N_{00} + N_{10} \\
+N = N_{00} + N_{01} + N_{10} + N_{11}
+\end{gather*}
+
+Using these estimates and expanding the sums, the equation can be rewritten as
+
+\begin{align*}
+I(U;C) = \frac{N_{11}}{N} log \frac{NN_{11}}{N_{1\_}N_{\_1}} + \frac{N_{01}}{N} log \frac{NN_{01}}{N_{0\_}N_{\_1}} + \\
+\frac{N_{10}}{N} log \frac{NN_{10}}{N_{1\_}N_{\_0}} + \frac{N_{00}}{N} log \frac{NN_{00}}{N_{0\_}N_{\_0}}
+\end{align*}
+
+We can compute these estimates from the output of the clustering tool, as shown
+in the implementation section.
+
+\subsection{Semantic intepretation using a term similarity graph}
+Role and Nadif (2014) describe another algorithm that is based on the centroids
+of the clusters, much like the centroid labelling described previously
+(although they divide the $tfidf$ value with the number of terms in the document
+to account for differences in document size). They extend this by creating a
+graph representation of the relationship between terms.\cite{role2014beyond}
+
+After clustering the data set the centroid vectors are used as the columns of a
+centroid matrix, $C$. A reduced centroid matrix, $C^{min}$, is created by only
+selecting the $n$ largest valued terms in each column.
+
+Following that, the algorithm build a term-term co-occurrence matrix, $T_k$.
+The value of co-occurrence between two terms is defined as the number of times
+the two terms co-occur (in some sense, e.g. within a sentence), divided by the
+total number of terms. This matrix is then multiplied by its transpose to give
+the term similarity matrix, $T^{sim}_k = T^\prime_k T_k$. In essence, this takes
+the cosine similarity between the co-occurrence vector of each word to find
+words that are related.
+
+Using $T^{sim}_k$ as the adjacency matrix the similarity graph $G^{sim}_k$ is
+built. By traversing this graph starting from the corresponding row in the
+reduced centroid matrix, $C^{min}_k$, we can find a graph of related terms from
+the terms found in the traversals. In the end, we can present the top term
+from $C^{min}_k$ together with the context that terms from the graph can provide
+for a more complete description of the cluster.
+
+\section{CHOICE OF LABELLING METHODS}
+
+\subsection{TF and TF/IDF labelling}
+When looking at centroid labelling an important factor to consider is whether or
+not we need to look at the full data set. With binary weights we only need to
+iterate through the documents in the cluster we are trying to label. This is of
+course also true for TF weights. When using TF/IDF weights however, the IDF part
+depends on the whole data set and will as such be a lot slower. However, due to
+the fact that in this case we have clustered the data set with TF/IDF weights,
+centroid labelling with TF/IDF weights becomes trivial, as we will see in the
+implementation section.
+
+Due to the fact that the method closely corresponds to the way we perform the
+clustering and its intuitive IR-related approach, this method is chosen for
+implementation within the project.
+
+\subsection{Mutual Information}
+The mutual information method suffers a bit performance wise due to the fact
+that we need to compute the mutual information for every term in the clusters.
+However, by exploiting the time-memory tradeoff and utilizing a key/value store
+to hold intermediate computations, this can be done fairly quickly.
+
+An interesting thing about using mutual information for labelling is that it is
+taking a different, more statistical, approach compared to the more geometrical
+centroid labelling method. Therefore, mutual information will be implemented to
+contrast and compare with the labels found by centroid labelling.
+
+\subsection{Semantic intepretation using a term similarity graph}
+Augmenting the centroid labelling method with a similarity graph is a very
+interesting idea, and at least for analytical reasons it would be interesting to
+explore that graph. However, I do not think this would help an end-user trying
+to asses what the cluster is about.
+
+Another obstacle is the fact that there we need to perform calculations on very
+large matrices (in this case the term-term co-occurrence matrix would be 100 000
+x 100 000). Multiplying matrices with such large dimensionality would most
+likely need to be parallelized, something that is definitely doable but a bit
+out of the scope and time frame of this project. We might be able to exploit the
+fact that this matrix most likely will fairly sparse.
+
+In the end, due to the large matrix operations I chose not to implement the
+similarity graph algorithm. This was also partly due to me finding the paper
+introducing the algorithm fairly late in the project.
+
+\section{IMPLEMENTATION}
+
+\subsection{Parsing cluster data}
+In order to perform calculations on the clusters data we need it in a format
+that is easy to work with. After the clustering has been performed the vectors
+are stored in a Mahout specific format called SequentialAccessSparseVector and
+the actual files containing the data is usually stored in the Hadoop distributed
+file system, HDFS.
+
+Mahout provides a tool to convert the data from this format in to a normal text
+file. This tool is called the \textit{Cluster Dumper}.\cite{clusterdumper}
+
+The output of the tool (for a k-means clustering job) is all clusters with their
+respective centroid and the documents that has been assigned to it. An brief
+example with made up data looks like this
+
+\begin{verbatim}
+VL-1{n=3 c=[term1:0.2, term2:0.1]}
+Top Terms:
+term1 => 0.2
+term2 => 0.1
+Weight : [props - optional]:  Point:
+1.0: document1 = [term1:0.4, term2:0.1]
+1.0: document2 = [term1:0.4, term2:0.1]
+1.0: document3 = [term1:0.4, term2:0.1]
+\end{verbatim}
+
+The first line shows that the cluster has three documents and the vector of the
+cluster centroid. After ``Top Terms'' the top ten terms with highest score in
+the centroid vector are presented. Finally each document assigned to the cluster
+is shown, along with its term vector.
+
+In order to work with this data, a ruby script was written that iterates through
+each of the lines in the output file, updating a key/value store
+(redis~\cite{redis}) with information needed to compute the cluster labels.
+Exactly what the data stored is will be described in the next sections that are
+specific to the algorithms.
+
+\subsection{Centroid labelling}
+As mentioned previously, centroid labelling and $k$-means clustering go hand in
+hand. In essence, $k$-means clustering works by initially choosing $k$ random
+documents as centroids and then iterating through all documents, assigning them
+to the nearest centroid. The centroid is then recomputed, much like described in
+the clustering labelling methods section on centroid labelling, and we again
+iterate over all documents and reassign them to the now nearest centroid. This
+is repeated until no documents are reassigned and convergence has been acheived.
+
+The output of this, is a set of $k$ centroids which define each cluster. This
+corresponds directly to the centroid described in the centroid labelling
+algorithm, so there is actually no need to recompute it.
+
+We simply store the top terms from the text output in a redis key named
+\texttt{cluster:centroids:<cluster ID>} containing a sorted set using the
+\texttt{ZADD} command. Using this sorted set, we can easily retrieve the top $n$
+tags for a cluster, sorted by highest score first, by issuing \texttt{ZREVRANGE
+cluster:centroids:<cluster ID> 0 n WITHSCORES} to the database. This is a
+$O(log(N)+M)$ operation, where $N$ is the number of elements in the set and $M$
+is the number of elements returned. In practice however, since we only store the
+top 10 terms, the time complexity is not an issue.
+
+\subsection{Mutual information}
+In order to be able to calculate the parameters needed for mutual information,
+we need a few more keys. The first of which is
+\texttt{tagcount:<cluster>:<term>}, whose value is an integer that is increased
+each time we find the term \texttt{term} in the cluster \texttt{cluster}. This
+corresponds directly to $N_{11}$ in the equation. We also track the cardinality
+of each cluster in the \texttt{cluster:cardinality:<cluster>} key. By iterating
+through the clusters (using \texttt{KEYS cluster:cardinality:*}) and summing the
+cardinalities we get the total number of documents, $N$, and we can then find
+$N_{01}$.
+
+$$
+N_{01} = N - N_{11}
+$$
+
+In the same way, we track the number of times a tag has been used in the
+\texttt{tag:count:<tag>} key. Denoting this value by $n_t$, we can find $N_{10}$
+as such
+
+$$
+N_{10} = n_t - N_11
+$$
+
+Finally, since $N$ is the sum of all $N_{ct}$ values, we can find $N_{00}$
+
+$$
+N_{00} = N - N_{10} - N_{11} - N_{01}
+$$
+
+Using these definitions, we can calculate the mutual information as described
+previously.
+
+All operations described this far are $O(1)$, apart from calculating the total
+number of documents in the data set which is $O(N)$, where $N$ is the number of
+clusters. However, this only has to be calculated once.
+
+Finally, to find the term with the highest mutual information with a cluster, we
+need to iterate through all the terms in that cluster. Therefore, we also keep
+track of the terms used in a cluster in a key called
+\texttt{cluster:tags:<cluster>} that is simply a set of all the tags used.
+
+The total time complexity for finding the top terms is $O(M)$, where $M$ is the
+number of unique terms used in the cluster.
+
+\section{RESULTS}
+In order to visually inspect the differences in output from the algorithms all
+the top terms for each cluster was printed. Once with the top 10 terms, and once
+with the top 3 terms. These files can be found in the git repo. See Appendix A.
+
+By simply looking through the top 3 tags we can get a very subjective view of
+whether MI labelling or centroid labelling seems to describe to contents of a
+cluster. Note that we do not know the contents of the clusters here, but we can
+still asses things like how coherent the top 3 terms are. Some interesting
+differences between the two methods are listed in \autoref{tbl:labeldiff}.
+
+\begin{table}
+\centering
+ \begin{tabular}{ |l|l|l| }
+  \hline
+  Cluster ID & MI labels & Centroid labels \\
+  \hline
+  \multirow{4}{*}{VL-14677} & country & country \\
+   & My Country & Hawaiian \\
+   & My Country Selection & Audiobook \\
+  \hline
+  \multirow{4}{*}{VL-110} & alternative rock & rock \\
+   & post-grunge & alternative rock \\
+   & alt rock & alternative \\
+  \hline
+  \multirow{4}{*}{VL-18949} & world & turkish \\
+   & World Music & world \\
+   & turkish & turkish rock \\
+  \hline
+  \multirow{4}{*}{VL-17855} & seattle & Grunge \\
+   & mashups & mashup \\
+   & mash-up & podcast \\
+  \hline
+ \end{tabular}
+ \caption{Example of differences between MI and centroid labels}
+ \label{tbl:labeldiff}
+\end{table}
+
+In general, most of the changes between MI and centroid labels were just changes
+in the internal ordering, or no changes at all. There are a few cases where MI
+seems to, subjectively, choose more coherent labels. The cluster with ID
+\texttt{VL-14677} is a good example. The top labels chosen by centroid labelling
+does not relate to eachother at all. The clusters \texttt{VL-110} and
+\texttt{18949} are both interesting in that all the top terms are somewhat
+related, but, in my opinion, MI did a better job of choosing a top label that
+describes a well defined genre of music. ``rock'' is a very broad genre, whereas
+``alternative rock'' is a bit more specific and definitely something an end-user
+might be looking for. ``turkish'' music is definitely a part of ``world'' music,
+but in my opinion ``world'' makes for a better label.
+
+An example where centroid labelling makes more sense when working from the
+hypothesis that each cluster would roughly correspond to a musical genre is
+\texttt{VL-17855}, where ``Grunge'' is a better top label than ``seattle'' in my
+opinion.
+
+Overall, both algorithms do a good job of finding a label when simply choosing
+the label candidate with the highest weight. In \autoref{tbl:artistlabels} I
+choose a number of well-known artists and present the label chosen by both MI
+and centroid labelling. The only difference is the label for ``The Who'', where
+MI labelling chose ``60s'' and centroid labelling chose ``classic rock''. In my
+opinion, centroid labelling did a better job in that particular case.
+
+\begin{table}
+\centering
+ \begin{tabular}{ |l|l|l| }
+  \hline
+   Artist & MI labels & Centroid labels \\
+  \hline
+   Bob Dylan & singer-songwriter & singer-songwriter \\
+  \hline
+   The Who & 60s & classic rock \\
+  \hline
+   Madonna & pop & pop \\
+  \hline
+   Frank Sinatra & jazz & jazz \\
+  \hline
+   Prince & soul & soul \\
+  \hline
+   Sex Pistol & punk & punk \\
+  \hline
+   Johnny Cash & country & country \\
+  \hline
+ \end{tabular}
+ \caption{Artists and the MI and centroid labels of their clusters}
+ \label{tbl:artistlabels}
+\end{table}
+
+\section{CONCLUSION AND FUTURE IMPROVEMENTS}
+Both MI labelling and centroid labelling seem like plausible algorithms for
+labelling this data set. In my opinion, the quality of the MI labels was
+slightly higher compared to the centroid labels. However, a lot more computing
+power is needed to calculate the MI values for each term. When doing $k$-means
+clustering, we basically get the centroids for free as they are a part of the
+output. MI labelling also requires doing a time-memory tradeoff (trading memory
+for time) in order to calculate the values quickly.
+
+Further improvements, at least for MI labelling, would be to implement it in a
+more scalable fashion. This implementation works fine on a single laptop for
+this particular data set. But as clusters grow in size and the number of
+clusters increases this would quickly get painfully slow. I would like to do a
+parallell implementation, for instance using the Hadoop framework with which the
+actual clustering was done.
+
+It would be very interesting to implement the term similarity graph algorithm.
+Especially for this data set as it would be interesting to see the connection
+between for instance the terms ``60s'' and ``classic rock'', which differed
+between MI and centroid labelling as we previously saw. Since the term
+similarity graph algorithm starts its traversal in the centroids ``classic
+rock'' would be one of the start points, and hopefully it would show the
+connection with ``60s''. There are two problems to solve here however. First, we
+need to define co-occurrence between terms. The paper describes this as
+``term $i$ co-occurs with term $j$ within a certain window of text (a sentence,
+a paragraph, etc.)''. In this case we do not have sentences or paragraphs so we
+would need to figure out another metric of co-occurrence. Another problem is the
+large matrix multiplications. These can of course be parallellized.
+
+\textit{CorePhrase} is an algorithm that tries to find key phrases in the
+documents in a cluster. It tries to find the intersecting phrases between all
+the documents by using a ``Document Index Graph''. The graph of each new
+document is matched with the cumulative graph of all previous documents in order
+to find candidate phrases.\cite{CorePhrase} This would be interesting to explore
+for natural language corpora. However, I do not think it would work very well on
+this corpus, as it is not natural language and there are no phrases in the
+normal sense.
+
+Another interesting algorithm for feature selection is presented by Schneider
+(2005) where the MI labelling method is extended with weights in order to
+prevent longer documents to have more influence in the feature
+scores.\cite{schneider2005weighted} This could be interesting in the context of
+cluster labelling as well where certain documents might have more unique terms
+than others.
+
+\addtolength{\textheight}{-12cm}
+
+\section*{APPENDIX}
+
+\subsection{GitHub and links}
+All code, the report and the output data is available on my GitHub page,
+\url{https://github.com/defect/EDAN70}. The following directories exist:
+
+\begin{itemize}
+ \item \texttt{doc/} - Contains report in .tex format, with Makefile to compile
+ it
+ \item \texttt{src/} - Contains ruby scripts to calculate labels based on a
+ clusterdump file
+ \item \texttt{output/} - Top 10 labels and top 3 labels for the Last.FM data
+ set
+\end{itemize}
+
+The clusterdump file used can be downloaded via Amazon S3 at this URL:
+\url{https://s3.amazonaws.com/edan70/clusterdump.txt} (27.2 MB).
+
+\bibliography{references}{}
+\bibliographystyle{ieeetr}
+
+
+\end{document}

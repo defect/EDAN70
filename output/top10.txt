@@ -1,0 +1,780 @@
+------------------------------------------
+VL-14677
+------------------------------------------
+country                  | country
+My Country               | Hawaiian
+My Country Selection     | Audiobook
+Traditional Country      | classic country
+classic country          | bluegrass
+modern country           | christmas
+bluegrass                | catala
+country folk             | americana
+greatest country artists | idols
+country gals             | Alt-country
+--------------------------------
+VL-3036
+--------------------------------
+chile           | chile
+rock chileno    | rock chileno
+chilean         | nueva cancion
+chilenos        | chilean
+nueva cancion   | latin
+spanish         | children music
+latinoamerica   | spanish
+Rock Latino     | musica andina
+Rock en Espanol | children
+latin           | chilenitos
+-------------------------------------------
+VL-17400
+-------------------------------------------
+Garage Rock              | Garage Rock
+garage                   | garage
+Garage Punk              | Garage Punk
+Garage Trash             | psychedelic
+garage rock revival      | 60s
+coffee mornings          | rock
+trashy blues-rock-boogie | punk
+psychedelic              | proto-punk
+proto punk               | Psychedelic Rock
+Shit Hot                 | indie
+---------------------------
+VL-2743
+---------------------------
+idm          | idm
+ambient      | post-rock
+experimental | electronic
+glitch       | ambient
+electronic   | electronica
+electronica  | icelandic
+post rock    | experimental
+post-rock    | instrumental
+minimal      | post rock
+XYZ          | breakcore
+--------------------------------
+VL-16661
+--------------------------------
+Drum and bass   | Drum and bass
+dnb             | Drum n Bass
+Drum n Bass     | dnb
+jungle          | jungle
+drumandbass     | electronic
+liquid funk     | liquid funk
+dnb stuff       | electronic dub
+Drum-n-bass     | estonian
+lovenjump       | electronica
+drum and praise | Ohms World
+-------------------------
+VL-876
+-------------------------
+downtempo   | downtempo
+lounge      | chillout
+chillout    | trip-hop
+trip-hop    | lounge
+acid jazz   | acid jazz
+trip hop    | electronic
+downbeat    | electronica
+nu jazz     | ambient
+nu-jazz     | nu jazz
+Chillosophy | nu-jazz
+-------------------------------------
+VL-19970
+-------------------------------------
+heavy metal       | heavy metal
+NWOBHM            | NWOBHM
+metal             | metal
+classic metal     | hard rock
+Traditional Metal | Power metal
+Power metal       | Misogyny Power
+hard rock         | epic metal
+hard n heavy      | Bangla Metal
+heavy             | Progressive metal
+speed metal       | thrash metal
+-----------------------------------------
+VL-7755
+-----------------------------------------
+rapcore           | rapcore
+Nu-metal          | Nu-metal
+Nu Metal          | argentina
+crossover         | tango
+numetal           | Nu Metal
+rap-core          | rio de la plata
+alternative metal | crossover
+argentina         | Spanish Metal
+rap metal         | Uruguay Argentina mia
+new metal         | metal
+-----------------------------
+VL-17064
+-----------------------------
+punk          | punk
+pop punk      | punk rock
+punk rock     | pop punk
+Pop-punk      | street punk
+punkrock      | Pop-punk
+street punk   | seen live
+Punk-Rock     | emo
+melodic punk  | hardcore punk
+hardcore punk | rock
+skate punk    | anarcho-punk
+-----------------------------------
+VL-4813
+-----------------------------------
+spanish         | spanish
+latin           | latin
+Espanol         | Flamenco
+Spanish Rock    | Spanish Rock
+spanish pop     | salsa
+Rock en Espanol | Rock Argentino
+spain           | spanish indie pop
+latin pop       | Reggaeton
+latino          | latin pop
+Latin Rock      | spanish pop
+-----------------------------------------
+VL-12309
+-----------------------------------------
+hiphop              | Hip-Hop
+hip hop             | rap
+rap                 | hip hop
+Hip-Hop             | hiphop
+underground hip-hop | underground hip-hop
+underground rap     | Dirty South
+underground hip hop | Gangsta Rap
+Gangsta Rap         | underground hip hop
+Real hip-hop        | german hiphop
+hardcore rap        | underground rap
+------------------------------------
+VL-7180
+------------------------------------
+experimental      | experimental
+noise             | RAC
+Avant-Garde       | noise
+emd               | Avant-Garde
+noise rock        | noise rock
+Experimental Rock | drone
+avantgarde        | digital hardcore
+avant garde       | post-punk
+noise-rock        | no wave
+no wave           | Sludge
+------------------------------
+VL-17855
+------------------------------
+seattle       | Grunge
+mashups       | mashup
+mash-up       | podcast
+mashup        | seattle
+Grunge        | mash-up
+bastard pop   | mashups
+bootleg       | bastard pop
+seattle sound | riot grrrl
+pearl jam     | Mashed Up
+mash up       | Christian Talk
+-----------------------------------
+VL-110
+-----------------------------------
+alternative rock | rock
+post-grunge      | alternative rock
+alt rock         | alternative
+modern rock      | Greek
+alternative      | indonesia
+rock             | seen live
+hard rock        | post-grunge
+Post Grunge      | 90s
+Grunge           | hard rock
+90s Rock         | Canadian
+-------------------------------------
+VL-8202
+-------------------------------------
+hardcore           | hardcore
+hardcore punk      | Crust
+Straight Edge      | hardcore punk
+oldschool hardcore | punk
+melodic hardcore   | Straight Edge
+good hardcore      | happy hardcore
+nyhc               | metalcore
+metalcore          | Gabber
+Crust              | melodic hardcore
+punk               | power violence
+-----------------------------------
+VL-2897
+-----------------------------------
+pop              | pop
+80s              | 80s
+eighties         | new wave
+new romantic     | slovak
+80s Pop          | Czech
+new wave         | female vocalists
+Guilty Pleasures | lithuanian
+british          | croatian
+teen pop         | british
+synth pop        | rock
+--------------------------------------------
+VL-10227
+--------------------------------------------
+french                   | french
+francais                 | chanson francaise
+chanson francaise        | russian
+francophone              | russian rock
+chanson                  | francophone
+france                   | quebec
+french pop               | chanson
+nouvelle scene francaise | francais
+rock francais            | ye-ye
+French rock              | rock francais
+-----------------------------------
+VL-6573
+-----------------------------------
+rnb              | rnb
+r and b          | soul
+contemporary rnb | r and b
+urban            | pop
+rhythm and blues | Hip-Hop
+soul             | new jack swing
+r&b              | female vocalists
+slow jams        | urban
+hip hop          | hip hop
+90s Rnb          | rhythm and blues
+---------------------------------
+VL-5582
+---------------------------------
+deutschpunk        | Oi
+Oi                 | deutschpunk
+streetpunk         | punk
+street punk        | street punk
+Skinhead           | german
+punkrock           | punk rock
+Deutsch Punk       | streetpunk
+Deutschpunk - Punk | Skinhead
+punk               | Deutsch Punk
+Oi-punk            | punkrock
+-------------------------
+VL-17825
+-------------------------
+indie pop   | indie
+indie rock  | indie rock
+indie       | indie pop
+Lo-Fi       | seen live
+twee        | twee
+britpop     | alternative
+shoegaze    | britpop
+post-punk   | shoegaze
+alternative | rock
+brit rock   | Canadian
+--------------------------------------
+VL-3601
+--------------------------------------
+singer-songwriter  | singer-songwriter
+folk               | folk
+acoustic           | acoustic
+folk rock          | Alt-country
+singer-songwriters | Canadian
+folk-rock          | female vocalists
+americana          | indie
+singer songwriter  | new age
+Alt-country        | americana
+indie folk         | seen live
+------------------------------------
+VL-11660
+------------------------------------
+New Zealand       | New Zealand
+Kiwi              | dub
+nz                | Kiwi
+NZ Music          | nz
+Kiwi Music        | reggae
+New Zealand music | NZ Music
+dub               | Kiwi Music
+Wellington        | New Zealand Rock
+electro dub       | electronic
+nz pop            | dub-u
+----------------------------
+VL-2466
+----------------------------
+60s           | classic rock
+oldies        | 60s
+70s           | oldies
+classic rock  | doo wop
+rock n roll   | 70s
+classic       | psychedelic
+Rock and Roll | rock
+album rock    | pop
+soft rock     | 50s
+sixties       | vocal
+----------------------------------
+VL-17057
+----------------------------------
+ska            | ska
+ska-punk       | ska punk
+ska punk       | ska-punk
+skacore        | punk
+skapunk        | reggae
+third wave ska | skacore
+Ska-Core       | seen live
+3rd wave ska   | rocksteady
+punk ska       | punk rock
+third-wave ska | crack rock steady
+--------------------------------
+VL-14665
+--------------------------------
+techno          | techno
+minimal         | minimal
+minimal techno  | electronic
+electro         | electro
+pablo NY        | minimal techno
+schmitz minimal | Kompakt
+House           | electronica
+electronic      | House
+electronica     | schranz
+Kompakt         | dance
+-----------------------------
+VL-16071
+-----------------------------
+australian       | australian
+Aussie           | Aussie
+australia        | melbourne
+melbourne        | seen live
+oz               | rock
+jjj              | oz
+triple j         | australia
+australian music | rockstar
+Aussie Rock      | rock star
+au               | pop
+-----------------------------------
+VL-3309
+-----------------------------------
+j-pop            | japanese
+JPop             | j-pop
+anime            | video game music
+japanese         | anime
+japan            | JPop
+video game music | eurobeat
+Japanese music   | OC ReMix
+game             | Game Music
+Game Music       | game
+J-rock           | Soundtrack
+------------------------------------
+VL-8674
+------------------------------------
+Soundtrack            | Soundtrack
+Soundtracks           | musicals
+score                 | Soundtracks
+ost                   | Broadway
+movie score composers | musical
+composer              | showtunes
+movie soundtrack      | Disney
+film score            | score
+musicals              | instrumental
+movie score           | composer
+-------------------------------------
+VL-5557
+-------------------------------------
+reggae                 | reggae
+dancehall              | dancehall
+lions reggae-dancehall | ragga
+jamaica                | roots reggae
+roots reggae           | dub
+Rasta                  | roots
+roots                  | Rasta
+ragga                  | jamaica
+dub                    | Bashment
+roots and culture      | lovers rock
+-----------------------------------
+VL-8935
+-----------------------------------
+blues               | blues
+blues rock          | bluegrass
+rlfav               | blues rock
+delta blues         | classic rock
+blues-rock          | delta blues
+Classic Blues       | guitar
+guitar              | folk
+gotanygoodmusic     | Classic Blues
+gramusels bluesrock | blues-rock
+electric blues      | Chicago Blues
+---------------------------------
+VL-18685
+---------------------------------
+dutch           | dutch
+Nederlandstalig | Nederlandstalig
+nederlands      | Belgium
+Belgium         | belgian
+belgian         | hardstyle
+Belgian music   | cabaret
+Belgisch        | nederlands
+NL              | seen live
+Dutch bands     | Nederpop
+kleinkunst      | Belgian music
+----------------------------------
+VL-13503
+----------------------------------
+polish           | polish
+polskie          | polskie
+polish music     | polish rock
+poland           | poetry
+polish rock      | poezja spiewana
+dobre bo polskie | polish punk
+PL               | rock
+polish punk      | polish music
+polska           | poland
+teraz polska     | Hip-Hop
+-----------------------------------
+VL-11218
+-----------------------------------
+soul             | soul
+rnb              | funk
+rhythm and blues | Disco
+funk             | Neo-Soul
+r&b              | rnb
+Disco            | motown
+Neo-Soul         | rhythm and blues
+r and b          | female vocalists
+motown           | northern soul
+motown and soul  | Neo Soul
+---------------------------------
+VL-3760
+---------------------------------
+ebm                | industrial
+industrial         | ebm
+darkwave           | darkwave
+dark electro       | synthpop
+electro-industrial | Gothic
+goth               | futurepop
+synthpop           | dark electro
+futurepop          | Gothic Rock
+Gothic             | goth
+industrial rock    | electronic
+----------------------------------
+VL-12015
+----------------------------------
+brazilian         | brazilian
+brasil            | mpb
+brazil            | brasil
+mpb               | brazil
+samba             | Bossa Nova
+brazilian rock    | samba
+brasileira        | brazilian rock
+rock brasileiro   | 5432fun
+musica brasileira | latin
+Bossa Nova        | Pagode
+-------------------------
+VL-5621
+-------------------------
+celtic      | celtic
+irish       | irish
+medieval    | neofolk
+Irish Folk  | folk metal
+folk        | medieval
+celtic rock | folk
+neofolk     | new age
+ireland     | bagpipes
+folk metal  | Mittelalter
+folk rock   | folk rock
+--------------------------------------
+VL-15013
+--------------------------------------
+finnish                | finnish
+Suomi                  | seen live
+finland                | Suomi
+finnish rock           | iskelma
+finnish lyrics         | finland
+suomirock              | estonian
+suomalaista            | Eesti
+Finnish and streamable | finnish rock
+suomirokki             | finnish metal
+Finnish music          | rock
+--------------------------------
+VL-5778
+--------------------------------
+jazz trumpet      | trumpet
+jazz instrumental | jazz
+essential jazz    | Classical
+contemporary jazz | saxophone
+Smooth Jazz       | Hard Bop
+bop and post-bop  | bebop
+Fusion            | Smooth Jazz
+jazz piano        | latin jazz
+Tenor Sax         | instrumental
+bebop             | brass
+---------------------------------------
+VL-8607
+---------------------------------------
+trance             | trance
+House              | dance
+dance              | House
+vocal trance       | techno
+techno             | eurodance
+eurodance          | electronic
+progressive trance | progressive trance
+club               | vocal trance
+Hard Trance        | electronica
+Progressive House  | Hard Trance
+-------------------------------
+VL-13853
+-------------------------------
+detroit        | juggalo
+wicked shit    | Horrorcore
+detroit rap    | detroit
+psychopathic   | detroit techno
+Horrorcore     | detroit rap
+detroit techno | freestyle
+juggalo rap    | psychopathic
+juggalo        | emusic
+acid rap       | wicked shit
+Rap-Hip-Hop    | for dj-ing
+-------------------------------
+VL-2937
+-------------------------------
+japanese rock  | J-rock
+jrock          | japanese
+J-rock         | visual kei
+japanese       | jrock
+Japanese music | japanese rock
+visual kei     | j-pop
+japan          | JPop
+j-pop          | Japanese music
+JPop           | anime
+asian rock     | oshare kei
+---------------------------------------
+VL-19926
+---------------------------------------
+psychedelic trance | psytrance
+psytrance          | goa
+goa                | Surf
+psy                | psychedelic trance
+psy trance         | psychedelic
+psy-trance         | surf rock
+Goa Trance         | trance
+full-on            | psy
+psychedelic        | a cappella
+full on            | psychill
+-------------------------------
+VL-1327
+-------------------------------
+jazz              | jazz
+contemporary jazz | Fusion
+jazz piano        | swing
+Smooth Jazz       | Smooth Jazz
+Fusion            | jazz fusion
+saxophone         | piano
+swing             | jazz vocal
+jazz fusion       | saxophone
+trumpet           | funk
+bebop             | ECM
+---------------------------------------------
+VL-5122
+---------------------------------------------
+melodic black metal   | black metal
+black y pagan metal   | melodic black metal
+Black                 | nsbm
+Meetall               | pagan metal
+Symphonic Black Metal | folk metal
+pagan metal           | Symphonic Black Metal
+blackmetal            | viking metal
+true black metal      | metal
+pagan black metal     | death metal
+metal                 | pagan black metal
+--------------------------------
+VL-37
+--------------------------------
+rockabilly   | psychobilly
+psychobilly  | rockabilly
+Pykoo        | horror punk
+ZORAX        | punk
+slap bass    | Pykoo
+rnr          | rock n roll
+psycho       | Rock and Roll
+psychobillyx | rnr
+horror punk  | country
+rock n roll  | British Rock Band
+-----------------------------------------------
+VL-8637
+-----------------------------------------------
+christian              | christian
+christian rock         | christian rock
+contemporary christian | worship
+worship                | contemporary christian
+Christian Music        | Christian hip hop
+ccm                    | rock
+Modern worship         | Modern worship
+praise and worship     | Christian Indie
+praise                 | ccm
+christian pop          | Christian Music
+----------------------------------------------
+VL-16215
+----------------------------------------------
+melodic metal           | Power metal
+heavy metal             | heavy metal
+Melodic Power Metal     | metal
+speed metal             | symphonic metal
+symphonic metal         | melodic metal
+metal                   | Progressive metal
+power                   | speed metal
+epic metal              | Female fronted metal
+Progressive metal       | folk metal
+progressive power metal | epic metal
+------------------------------
+VL-13015
+------------------------------
+comedy          | comedy
+deutsch         | german
+german          | deutsch
+german artists  | funny
+funny           | humor
+deutschsprachig | stand-up
+humor           | Deutschrock
+Deutschrock     | humour
+humour          | spoken word
+german lyrics   | liedermacher
+-------------------------------------------
+VL-6033
+-------------------------------------------
+thrash metal            | thrash metal
+thrash                  | metal
+speed metal             | thrash
+trash metal             | speed metal
+heavy metal             | death metal
+metal                   | heavy metal
+old school thrash metal | oldskool
+death metal             | crossover
+Thrash and Speed Metal  | trash metal
+groove metal            | Progressive metal
+-----------------------------------------------
+VL-15102
+-----------------------------------------------
+Classical              | Classical
+Clasica                | italian
+italian                | piano
+italiana               | opera
+contemporary classical | contemporary classical
+Klassik                | italiana
+italiano               | baroque
+classique              | classical guitar
+baroque                | composers
+composers              | italian pop
+-----------------------------
+VL-554
+-----------------------------
+screamo       | screamo
+post-hardcore | emo
+emocore       | post-hardcore
+emo           | hardcore
+post hardcore | emocore
+hardcore      | emo violence
+emo violence  | real screamo
+real screamo  | post hardcore
+pop punk      | indie
+metalcore     | seen live
+--------------------------------
+VL-3505
+--------------------------------
+swedish      | swedish
+svenskt      | Stoner Rock
+Sweden       | svenskt
+scandinavian | OPM
+Svensk Musik | seen live
+from: sweden | pop
+Swedish Pop  | Sweden
+scandinavia  | progg
+nordic       | indie pop
+se           | singer-songwriter
+----------------------------------------
+VL-16656
+----------------------------------------
+Progressive       | Progressive rock
+prog              | Progressive metal
+Progressive metal | doom metal
+Progressive rock  | Gothic Metal
+prog rock         | Progressive
+Doom              | metal
+doom metal        | Female fronted metal
+prog metal        | Doom
+art rock          | funeral doom
+Gothic Metal      | symphonic metal
+-----------------------------
+VL-10967
+-----------------------------
+danish         | danish
+dansk          | dansk
+dk             | scandinavian
+scandinavian   | dk
+denmark        | Danish bands
+Danish bands   | denmark
+copenhagen     | danish music
+Danish artists | comedy
+aarhus         | seen live
+oplevet        | memphis
+-----------------------------------
+VL-14080
+-----------------------------------
+norwegian     | norwegian
+norsk         | chinese
+Norway        | norsk
+chinese       | C-pop
+C-pop         | latvian
+mandarin      | cpop
+cpop          | mandarin
+Chinese Music | mistagged artist
+Chinese Pop   | cantonese
+taiwan        | Roger Waters Ca Ira
+--------------------------------
+VL-5305
+--------------------------------
+hard rock      | hard rock
+hair metal     | hair metal
+80s hair metal | Romanian
+80s metal      | rock
+Glam Metal     | metal
+heavy metal    | classic rock
+melodic rock   | guitar virtuoso
+Cock rock      | Nu Metal
+glam           | heavy metal
+glam rock      | hungarian
+--------------------------------
+VL-18949
+--------------------------------
+world             | turkish
+World Music       | world
+turkish           | turkish rock
+ethnic            | portuguese
+Portuguese music  | Portugal
+portuguesa        | african
+portuguese        | Indian
+Musica Portuguesa | fado
+Portugal          | World Music
+Indian            | israeli
+-----------------------------------------------
+VL-3345
+-----------------------------------------------
+gospel                 | gospel
+christian              | worship
+worship                | christian
+Contemporary Gospel    | religious
+religious              | contemporary christian
+praise                 | praise
+finnish gospel         | Modern worship
+praise and worship     | Contemporary Gospel
+contemporary christian | praise and worship
+Christian Music        | Christian Music
+-----------------------------------------------
+VL-18939
+-----------------------------------------------
+death metal           | death metal
+Brutal Death Metal    | Melodic Death Metal
+death                 | grindcore
+Technical Death Metal | Brutal Death Metal
+Melodic Death Metal   | Technical Death Metal
+grindcore             | goregrind
+Grind                 | metal
+metal                 | Grind
+goregrind             | progressive death metal
+death-grind           | thrash metal
+-----------------------------------------
+VL-17013
+-----------------------------------------
+hardcore            | metalcore
+melodic metalcore   | hardcore
+deathcore           | metal
+death metal         | deathcore
+metal               | mathcore
+screamo             | death metal
+grindcore           | grindcore
+Melodic Death Metal | Melodic Death Metal
+mathcore            | emocore
+emocore             | screamo
